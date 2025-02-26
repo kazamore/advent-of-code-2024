@@ -1,9 +1,9 @@
 package day_1
 
 import "core:fmt"
-import "core:strings"
-import "core:strconv"
 import "core:slice"
+import "core:strconv"
+import "core:strings"
 
 main :: proc() {
   data := #load("./day_1.in", string)
@@ -17,14 +17,14 @@ main :: proc() {
     append(&ids2, strconv.atoi(line[8:]))
   }
 
-  slice.sort(ids1[:]) 
-  slice.sort(ids2[:]) 
+  slice.sort(ids1[:])
+  slice.sort(ids2[:])
 
   diff := 0
   freq := make(map[int]int)
   defer delete(freq)
 
-  for i in 0..<len(ids1) {
+  for i in 0 ..< len(ids1) {
     diff += abs(ids1[i] - ids2[i])
     freq[ids2[i]] += 1
   }
